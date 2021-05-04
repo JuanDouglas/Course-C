@@ -15,10 +15,10 @@ void EnableBit(int *bits, int position)
     *bits |= bit;
 }
 
-void DisableBit(int bits, int position)
+void DisableBit(int *bits, int position)
 {
     int bit = IntByBitPosition(position);
-    bits &= ~bit;
+    *bits &= ~bit;
 }
 
 void ShowBit(int *compare, unsigned *bitValue, char text[], int position)
@@ -49,7 +49,7 @@ int run(){
     EnableBit(&bits, position);
 
     char output[32];
-    CharArrayBits(&bits, &output,32);
+    CharArrayBits(&bits, output,32);
 
     printf("Bits: %s \nDecimal Value: %i", output, bits);
     scanf("%i", position);
